@@ -12,8 +12,16 @@ import edu.kh.todoList.model.dto.Todo;
 //	  쉽게 교체 가능
 public interface TodoListDAO {
 
-	List<Todo> todoListFullView(Connection conn);
+	List<Todo> todoListFullView(Connection conn) throws Exception;
 
-	int getCompleteCount(Connection conn);
+	int getCompleteCount(Connection conn) throws Exception;
+
+	int todoAdd(Connection conn, String title, String detail) throws Exception;
+
+	Todo todoDetail(Connection conn, int todoNo) throws Exception;
+
+	int todoComplete(Connection conn, int todoNo)throws Exception;
+
+	int todoDelete(Connection conn, int todoNo)throws Exception;
 
 }
