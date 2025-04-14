@@ -91,6 +91,21 @@ public class TodoListServiceImpl implements TodoListService{
 		if(result > 0) commit(conn);
 		else rollback(conn);
 		
+		close(conn);
+		
+		return result;
+	}
+
+	@Override
+	public int todoUpdate(int todoNo, String title, String detail) throws Exception {
+		
+		Connection conn = getConnertion();
+		
+		int result = dao.todoUpdate(conn, todoNo, title, detail);
+		
+		if(result > 0) commit(conn);
+		else rollback(conn);
+		
 		return result;
 	}
 
